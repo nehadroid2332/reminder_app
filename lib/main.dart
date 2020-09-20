@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         backgroundColor: Color.fromRGBO(243, 243, 243, 1.0),
+        // canvasColor:  Colors.transparent,
       ),
       initialRoute: Screens.home.toString(),
       routes: {
