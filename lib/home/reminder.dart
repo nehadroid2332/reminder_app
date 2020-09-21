@@ -36,6 +36,16 @@ class ReminderScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20)),
                   child: ListTile(
                     contentPadding: EdgeInsets.all(20),
+                    trailing: CustomSwitch(
+                      activeColor: Colors.red[200],
+                      inactiveColor: Colors.grey[200],
+                      value: false,
+                      onChanged: (value) {
+                        print("cal->$value");
+                      },
+                      activeText: 'ON',
+                      inactiveText: 'OFF',
+                    ),
                     leading: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
