@@ -5,8 +5,7 @@ class AppButton extends StatelessWidget {
   final String title;
   final void Function() onTap;
 
-  const AppButton({Key key, @required this.title, @required this.onTap})
-      : super(key: key);
+  const AppButton({Key key, @required this.title, @required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,13 +77,9 @@ class CustomSliderThumbCircle extends SliderComponentShape {
       text: getValue(value),
     );
 
-    TextPainter tp = new TextPainter(
-        text: span,
-        textAlign: TextAlign.center,
-        textDirection: TextDirection.ltr);
+    TextPainter tp = new TextPainter(text: span, textAlign: TextAlign.center, textDirection: TextDirection.ltr);
     tp.layout();
-    Offset textCenter =
-        Offset(center.dx - (tp.width / 2), center.dy - (tp.height / 2));
+    Offset textCenter = Offset(center.dx - (tp.width / 2), center.dy - (tp.height / 2));
 
     canvas.drawCircle(center, thumbRadius * .9, paint);
     tp.paint(canvas, textCenter);
@@ -117,21 +112,18 @@ class CustomSwitch extends StatefulWidget {
   _CustomSwitchState createState() => _CustomSwitchState();
 }
 
-class _CustomSwitchState extends State<CustomSwitch>
-    with SingleTickerProviderStateMixin {
+class _CustomSwitchState extends State<CustomSwitch> with SingleTickerProviderStateMixin {
   Animation _circleAnimation;
   AnimationController _animationController;
 
   @override
   void initState() {
     super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 60));
+    _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 60));
     _circleAnimation = AlignmentTween(
             begin: widget.value ? Alignment.centerRight : Alignment.centerLeft,
             end: widget.value ? Alignment.centerLeft : Alignment.centerRight)
-        .animate(CurvedAnimation(
-            parent: _animationController, curve: Curves.linear));
+        .animate(CurvedAnimation(parent: _animationController, curve: Curves.linear));
   }
 
   @override
@@ -146,9 +138,7 @@ class _CustomSwitchState extends State<CustomSwitch>
             } else {
               _animationController.forward();
             }
-            widget.value == false
-                ? widget.onChanged(true)
-                : widget.onChanged(false);
+            widget.value == false ? widget.onChanged(true) : widget.onChanged(false);
           },
           child: Container(
             width: 35.0,
@@ -163,9 +153,8 @@ class _CustomSwitchState extends State<CustomSwitch>
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: _circleAnimation.value == Alignment.centerLeft
-                            ? widget.inactiveColor
-                            : widget.activeColor),
+                        color:
+                            _circleAnimation.value == Alignment.centerLeft ? widget.inactiveColor : widget.activeColor),
                   ),
                 ),
                 Positioned.fill(
@@ -177,9 +166,7 @@ class _CustomSwitchState extends State<CustomSwitch>
                               padding: const EdgeInsets.only(),
                               child: Text(
                                 '',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 10.0),
+                                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 10.0),
                               ),
                             )
                           : SizedBox.shrink(),
@@ -191,15 +178,10 @@ class _CustomSwitchState extends State<CustomSwitch>
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color:
-                                _circleAnimation.value == Alignment.centerRight
-                                    ? Colors.red
-                                    : Colors.grey,
+                            color: _circleAnimation.value == Alignment.centerRight ? Colors.grey : Colors.red,
                           ),
                           child: Text(
-                            _circleAnimation.value == Alignment.centerRight
-                                ? widget.activeText
-                                : widget.inactiveText,
+                            _circleAnimation.value == Alignment.centerRight ? widget.activeText : widget.inactiveText,
                             style: GoogleFonts.lato(
                               fontWeight: FontWeight.w900,
                               fontSize: 10.0,
@@ -213,9 +195,7 @@ class _CustomSwitchState extends State<CustomSwitch>
                               padding: const EdgeInsets.only(),
                               child: Text(
                                 '',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w900,
-                                    fontSize: 10.0),
+                                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 10.0),
                               ),
                             )
                           : SizedBox.shrink(),

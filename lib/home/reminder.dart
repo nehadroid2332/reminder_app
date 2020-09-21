@@ -28,23 +28,21 @@ class ReminderScreen extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               itemCount: 10,
-              separatorBuilder: (context, index) =>
-                  Divider(color: Colors.transparent),
+              separatorBuilder: (context, index) => Divider(color: Colors.transparent),
               itemBuilder: (context, index) {
                 return Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                   child: ListTile(
                     contentPadding: EdgeInsets.all(20),
                     trailing: CustomSwitch(
-                      activeColor: Colors.red[200],
-                      inactiveColor: Colors.grey[200],
+                      activeColor: Colors.grey[200],
+                      inactiveColor: Colors.red[200],
                       value: false,
                       onChanged: (value) {
                         print("cal->$value");
                       },
-                      activeText: 'ON',
-                      inactiveText: 'OFF',
+                      activeText: 'OFF',
+                      inactiveText: 'ON',
                     ),
                     leading: Container(
                       decoration: BoxDecoration(
